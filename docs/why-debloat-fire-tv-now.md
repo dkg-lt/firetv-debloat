@@ -20,7 +20,7 @@ If you own an **Amazon Fire TV Stick 4K Max (1st Gen, `AFTKA` / `kara`)** runnin
 
 Every few months, Amazon pushes silent over-the-air (OTA) firmware updates that close kernel exploits, re-enable locked-down bloatware, and strip away your ability to use a custom home screen. Right now, a working one-shot temp-root window (**GhostLock 4.14 / CVE-2026-43499**) makes it possible to completely transform your Fire TV Stick into a fast, private, ad-free streaming powerhouse — and lock out future Amazon updates before the door slams shut.
 
-The open-source **[firetv-debloat](https://github.com/dkickildejev-ship-it/firetv-debloat)** repository bundles every script, payload, and a custom **Fire TV Launcher** into one clean, 100% reversible workflow.
+The open-source **[firetv-debloat](https://github.com/dkg-lt/firetv-debloat)** repository bundles every script, payload, and a custom **Fire TV Launcher** into one clean, 100% reversible workflow.
 
 ---
 
@@ -130,7 +130,7 @@ Getting set up takes about 15–20 minutes over wireless ADB:
 7. **Configure your 4 remote buttons** right on the TV via **Launcher Settings → Remote buttons** (or **Hold OK on the Settings pill → Remote buttons**).
 
 Full commands, verification checks, and troubleshooting notes are documented in the repository:
-👉 **[github.com/dkickildejev-ship-it/firetv-debloat](https://github.com/dkickildejev-ship-it/firetv-debloat)**
+👉 **[github.com/dkg-lt/firetv-debloat](https://github.com/dkg-lt/firetv-debloat)**
 
 ---
 
@@ -157,4 +157,4 @@ The repository is tested and verified on the **Amazon Fire TV Stick 4K Max 1st G
 
 Once a new Fire OS update hits your Fire TV Stick 4K Max, you cannot downgrade the firmware to get temp-root back. Take 15 minutes today to block OTA updates, reclaim over 1 GB of RAM, ditch the ads, and make your Fire TV Stick truly yours.
 
-**Get started now:** [https://github.com/dkickildejev-ship-it/firetv-debloat](https://github.com/dkickildejev-ship-it/firetv-debloat)
+**Get started now:** [https://github.com/dkg-lt/firetv-debloat](https://github.com/dkg-lt/firetv-debloat)
