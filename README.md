@@ -6,6 +6,8 @@ Everything needed to debloat an **Amazon Fire TV Stick 4K Max 1st Gen (`kara`, F
 
 > **Disclaimer:** Tested on Fire TV Stick 4K Max 1st Gen (`AFTKA` / `kara`, Fire OS 7.7.1.3, Android 9). Package disabling uses `pm disable-user` / `pm disable` (100% reversible — no `pm uninstall`). Do not blindly run on unrelated Fire OS versions without checking package names first.
 
+**Contents:** [Support](#support) · [What's Included](#whats-included) · [Prerequisites](#prerequisites) · [Fast Setup with an AI Agent](#fast-setup-with-an-ai-agent) · [Step-by-Step Setup](#step-by-step-setup-safe-order) · [Verification Checklist](#verification-checklist) · [Critical Lessons Learned](#critical-lessons-learned) · [Credits & License](#credits--license)
+
 ---
 
 ## Support
@@ -52,6 +54,26 @@ Forked from [CleanYourTV 3.6](https://github.com/Gathin23/cleanyourtv) (MIT) wit
 1. **ADB** (`platform-tools`) with wireless debugging enabled on the Fire TV (`Settings → My Fire TV → Developer Options → ADB Debugging`).
 2. **JDK 17** and **Android SDK Platform 34 / Build Tools 34.0.0** (to build `launcher/`).
 3. **[GhostLock 4.14](https://github.com/R0rt1z2/GhostLock)** (CVE-2026-43499 one-shot temp-root for `kara` 4.14 kernels) — only needed to modify Fire OS–protected packages (`com.amazon.tv.oobe`, `com.amazon.firehomestarter`, telemetry agents, etc.). Root does not survive reboot, but PackageManager states and `/data/system/devices/keylayout/` overrides do.
+
+---
+
+## Fast Setup with an AI Agent
+
+If you use an AI coding agent with terminal access (such as **Antigravity**, **Claude Code**, **Cursor**, or **Codex**), you can automate the entire build, debloat, and verification flow in one shot:
+
+1. Clone this repository and [GhostLock 4.14](https://github.com/R0rt1z2/GhostLock), and make sure **ADB Debugging** is enabled on your Fire TV (`<TV_IP>:5555`).
+2. Open the repo in your AI agent and paste this prompt (replacing `<TV_IP>` and `<PATH_TO_GHOSTLOCK>`):
+
+```text
+Follow README.md in this repo to debloat my Fire TV Stick 4K Max at <TV_IP>:5555 (GhostLock is at <PATH_TO_GHOSTLOCK>).
+1. Connect via ADB, verify the device is AFTKA/kara on Fire OS 7.7.1.3, and verify JDK 17 + Android SDK 34 are available.
+2. Build and install launcher/ FIRST, push config/launcher-config.json, grant WRITE_SECURE_SETTINGS, and enable InputKeyService.
+3. Pack the GhostLock payloads and run them in the exact safe order: 01-disarm-oobe.tar -> 02-set-home.tar -> scripts/debloat-shell.sh -> 03-freeze-telemetry.tar -> 04-ram-optimize.tar -> 05-remap-buttons.tar (optional, ask me if unsure).
+4. Never disable com.amazon.device.messaging, and always enable com.amazon.tv.launcher before disabling its components.
+5. Run the full Verification Checklist (including MainSettingsActivity) and report the results.
+```
+
+> **Note:** Accept the wireless ADB authorization prompt on your TV screen the first time the agent runs `adb connect`, and keep the TV powered on while GhostLock reboots it between payloads.
 
 ---
 
