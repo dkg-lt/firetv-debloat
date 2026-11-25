@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FF101419"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingStart="72dp"
+        android:paddingEnd="72dp"
+        android:paddingTop="34dp"
+        android:paddingBottom="38dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/remote_buttons"
+            android:textColor="#FFFFFFFF"
+            android:textSize="34sp" />
+
+        <TextView
+            android:id="@+id/identifyBanner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/remote_buttons_hint"
+            android:textColor="#FF7DD3FC"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/serviceStatusRow"
+            style="@style/SettingsRow"
+            android:layout_marginTop="18dp" />
+
+        <!-- Button 1 -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="22dp"
+            android:text="@string/remote_btn_1"
+            android:textColor="#FFFFFFFF"
+            android:textSize="19sp" />
+
+        <TextView
+            android:id="@+id/btn1Tap"
+            style="@style/SettingsRow"
+            android:layout_marginTop="8dp" />
+
+        <TextView
+            android:id="@+id/btn1Hold"
+            style="@style/SettingsRow"
+            android:layout_marginTop="6dp" />
+
+        <!-- Button 2 -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/remote_btn_2"
+            android:textColor="#FFFFFFFF"
+            android:textSize="19sp" />
+
+        <TextView
+            android:id="@+id/btn2Tap"
+            style="@style/SettingsRow"
+            android:layout_marginTop="8dp" />
+
+        <TextView
+            android:id="@+id/btn2Hold"
+            style="@style/SettingsRow"
+            android:layout_marginTop="6dp" />
+
+        <!-- Button 3 -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/remote_btn_3"
+            android:textColor="#FFFFFFFF"
+            android:textSize="19sp" />
+
+        <TextView
+            android:id="@+id/btn3Tap"
+            style="@style/SettingsRow"
+            android:layout_marginTop="8dp" />
+
+        <TextView
+            android:id="@+id/btn3Hold"
+            style="@style/SettingsRow"
+            android:layout_marginTop="6dp" />
+
+        <!-- Button 4 -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/remote_btn_4"
+            android:textColor="#FFFFFFFF"
+            android:textSize="19sp" />
+
+        <TextView
+            android:id="@+id/btn4Tap"
+            style="@style/SettingsRow"
+            android:layout_marginTop="8dp" />
+
+        <TextView
+            android:id="@+id/btn4Hold"
+            style="@style/SettingsRow"
+            android:layout_marginTop="6dp" />
+
+        <TextView
+            android:id="@+id/resetButtonsRow"
+            style="@style/SettingsRow"
+            android:layout_marginTop="26dp"
+            android:text="@string/remote_buttons_reset" />
+    </LinearLayout>
+</ScrollView>
