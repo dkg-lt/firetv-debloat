@@ -1,10 +1,18 @@
 # Fire TV Debloat & Fire TV Launcher
 
-> **Act fast before the next Fire OS update patches it!** Turn your **Amazon Fire TV Stick 4K Max (1st Gen, `kara`, Fire OS 7.7.1.3)** into a fast, private, ad-free streaming box — **no Amazon account required, OTA updates permanently blocked, 83 bloat & telemetry packages disabled (~1 GB+ free RAM, 0 KB idle swap), a permanent custom Home screen with live RAM/storage stats, and all 4 branded remote buttons remapped to 8 Tap & Hold shortcuts** — 100% reversible. Because this relies on the current **GhostLock 4.14 (CVE-2026-43499)** temp-root window before Amazon silently pushes a newer firmware, lock in your setup now — **[read the full breakdown & benchmarks here](docs/why-debloat-fire-tv-now.md)**.
-
 Everything needed to debloat an **Amazon Fire TV Stick 4K Max 1st Gen (`kara`, Fire OS 7.7.1.3)** without an Amazon account, replace the stock HOME with a lightweight custom **Fire TV Launcher** (`com.dkg.tvlauncher`), cut idle background RAM usage, and remap the 4 branded remote app buttons (Prime Video, Netflix, Disney+, Amazon Music) to any installed app or action.
 
+> **Act fast before the next Fire OS update patches it!** Turn your **Amazon Fire TV Stick 4K Max (1st Gen, `kara`, Fire OS 7.7.1.3)** into a fast, private, ad-free streaming box — **no Amazon account required, OTA updates permanently blocked, 83 bloat & telemetry packages disabled (~1 GB+ free RAM, 0 KB idle swap), a permanent custom Home screen with live RAM/storage stats, and all 4 branded remote buttons remapped to 8 Tap & Hold shortcuts** — 100% reversible. Because this relies on the current **GhostLock 4.14 (CVE-2026-43499)** temp-root window before Amazon silently pushes a newer firmware, lock in your setup now — **[read the full breakdown & benchmarks here](docs/why-debloat-fire-tv-now.md)**.
+
 > **Disclaimer:** Tested on Fire TV Stick 4K Max 1st Gen (`AFTKA` / `kara`, Fire OS 7.7.1.3, Android 9). Package disabling uses `pm disable-user` / `pm disable` (100% reversible — no `pm uninstall`). Do not blindly run on unrelated Fire OS versions without checking package names first.
+
+---
+
+## Support
+
+If this project helped debloat your Fire TV or saved you from ads and telemetry, consider supporting future updates:
+
+[![Donate via PayPal](https://img.shields.io/badge/PayPal-Support%20This%20Project-00457C?style=for-the-badge&logo=paypal&logoColor=white)](https://paypal.me/dkglt)
 
 ---
 
