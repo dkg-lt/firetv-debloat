@@ -18,7 +18,7 @@ keywords:
 
 If you own an **Amazon Fire TV Stick 4K Max (1st Gen, `AFTKA` / `kara`)** running **Fire OS 7.7.1.3**, **do not wait to debloat it.**
 
-Every few months, Amazon pushes silent over-the-air (OTA) firmware updates that close kernel exploits, re-enable locked-down bloatware, and strip away your ability to use a custom home screen. Right now, a working one-shot temp-root window (**GhostLock 4.14 / CVE-2026-43499**) makes it possible to completely transform your Fire TV Stick into a fast, private, ad-free streaming powerhouse — and lock out future Amazon updates before the door slams shut.
+Every few months, Amazon pushes silent over-the-air (OTA) firmware updates that close kernel exploits, re-enable locked-down bloatware, and strip away your ability to use a custom home screen. Right now, a working one-shot temp-root window (**GhostLock 4.14 / CVE-2026-43499**) makes it possible to completely transform your Fire TV Stick into a fast, private, ad-free streaming powerhouse - and lock out future Amazon updates before the door slams shut.
 
 The open-source **[firetv-debloat](https://github.com/dkg-lt/firetv-debloat)** repository bundles every script, payload, and a custom **Fire TV Launcher** into one clean, 100% reversible workflow.
 
@@ -30,12 +30,12 @@ Before diving into why time is ticking, here is everything you gain by running t
 
 ### 1. Zero Ads & a Permanent, Ultra-Fast Custom Home Screen
 - Replaces Amazon's bloated, ad-filled stock Home screen (`HomeActivity_vNext` and `com.amazon.firehomestarter`) with the lightweight, open-source **Fire TV Launcher** (`com.dkg.tvlauncher`, forked from CleanYourTV 3.6).
-- Pressing the **Home button** on your remote takes you straight to your apps — no sponsored banners, no auto-playing trailers, and no clunky accessibility workarounds that flicker back to the stock UI.
+- Pressing the **Home button** on your remote takes you straight to your apps - no sponsored banners, no auto-playing trailers, and no clunky accessibility workarounds that flicker back to the stock UI.
 - Keeps Fire TV's native **Settings** menu (`MainSettingsActivity`) 100% functional so you never lose access to Wi-Fi, Display, Audio, or Bluetooth controls.
 
 ### 2. Use Your Fire TV Stick Completely Without an Amazon Account
 - Permanently disarms Amazon's Out-of-Box Experience (**OOBE** / `com.amazon.tv.oobe`) and removes remote-button restrictions (`RESTRICT_REMOTE_BUTTONS=0`).
-- Survives reboots cleanly — no more forced Amazon sign-in loops or account-linked tracking.
+- Survives reboots cleanly - no more forced Amazon sign-in loops or account-linked tracking.
 
 ### 3. Permanent Protection Against Forced Amazon OTA Updates
 - Disables Amazon's OTA update packages (`com.amazon.device.software.ota`, `.override`, `com.amazon.tv.forcedotaupdater.v2`, `sneakpeek`, and update metrics).
@@ -57,7 +57,7 @@ Before diving into why time is ticking, here is everything you gain by running t
 ### 6. Turn the 4 Useless Branded Remote Buttons into 8 Custom Shortcuts
 - Overrides the BLE Penny Remote keylayout at the system level (`/data/system/devices/keylayout/Vendor_0171_Product_041e_Version_0038.kl`) so Fire OS's `FireTVKeyPolicyManager` stops hijacking the **Prime Video, Netflix, Disney+, and Amazon Music** buttons.
 - Includes a built-in **on-TV Remote Button Remapper UI** directly inside Fire TV Launcher (**0 MB extra background process**).
-- Bind both **Single Tap** and **Long Press (0.5 s)** for all 4 buttons — giving you **8 instant global shortcuts** to any installed app or system action from anywhere on the TV.
+- Bind both **Single Tap** and **Long Press (0.5 s)** for all 4 buttons - giving you **8 instant global shortcuts** to any installed app or system action from anywhere on the TV.
 
 ### 7. Real-Time RAM & Storage Monitor on Your Home Screen
 - Built-in `stats_pill` feature displays compact, live **RAM (`total / free`)** and **Storage (`total / free`)** bars right under the top-right pills on your Home screen so you can monitor device health at a glance.
@@ -101,17 +101,17 @@ All figures below were measured directly over ADB (`dumpsys meminfo` and `/proc/
 
 Everything is organized into modular, easy-to-audit scripts:
 
-- **`launcher/`** — Full Android Gradle source for **Fire TV Launcher** (`com.dkg.tvlauncher`), including the `stats_pill` monitor and on-TV Remote Button Remapper.
-- **`config/launcher-config.json`** — Tuned low-RAM runtime config (`stats_pill`, `ambient_glow: false`, `module_cards: false`, `restore_key_services: true`).
-- **`scripts/debloat-shell.sh`** — Disables unprotected Amazon bloat over ADB (no root needed).
-- **`scripts/oobe-watchdog.sh`** — Temporary no-root fallback if you are stuck in an OOBE registration loop before running GhostLock.
-- **`scripts/ghostlock/`** — Ordered one-shot temp-root payloads:
-  1. `01-disarm-oobe.sh` — Permanently disables OOBE and blocks OTA updates.
-  2. `02-set-home.sh` — Disables `firehomestarter` + stock HOME component and pins Fire TV Launcher as default HOME.
-  3. `03-freeze-telemetry.sh` — Freezes protected telemetry, logging, crash uploaders, and account-only Amazon apps.
-  4. `04-ram-optimize.sh` — Cuts persistent/protected bloat, WebView telemetry, and 16 stock launcher background services.
-  5. `05-remap-buttons.sh` — Remaps the 4 branded remote buttons (scan codes `744`–`747`) to `F1`–`F4`.
-- **Revert scripts** — `revert-shell.sh`, `revert-ram-optimize.sh`, and `revert-remap-buttons.sh`.
+- **`launcher/`** - Full Android Gradle source for **Fire TV Launcher** (`com.dkg.tvlauncher`), including the `stats_pill` monitor and on-TV Remote Button Remapper.
+- **`config/launcher-config.json`** - Tuned low-RAM runtime config (`stats_pill`, `ambient_glow: false`, `module_cards: false`, `restore_key_services: true`).
+- **`scripts/debloat-shell.sh`** - Disables unprotected Amazon bloat over ADB (no root needed).
+- **`scripts/oobe-watchdog.sh`** - Temporary no-root fallback if you are stuck in an OOBE registration loop before running GhostLock.
+- **`scripts/ghostlock/`** - Ordered one-shot temp-root payloads:
+  1. `01-disarm-oobe.sh` - Permanently disables OOBE and blocks OTA updates.
+  2. `02-set-home.sh` - Disables `firehomestarter` + stock HOME component and pins Fire TV Launcher as default HOME.
+  3. `03-freeze-telemetry.sh` - Freezes protected telemetry, logging, crash uploaders, and account-only Amazon apps.
+  4. `04-ram-optimize.sh` - Cuts persistent/protected bloat, WebView telemetry, and 16 stock launcher background services.
+  5. `05-remap-buttons.sh` - Remaps the 4 branded remote buttons (scan codes `744`–`747`) to `F1`–`F4`.
+- **Revert scripts** - `revert-shell.sh`, `revert-ram-optimize.sh`, and `revert-remap-buttons.sh`.
 
 ---
 
@@ -137,7 +137,7 @@ Full commands, verification checks, and troubleshooting notes are documented in 
 ## Frequently Asked Questions (FAQ)
 
 ### Will debloating my Fire TV Stick 4K Max break the Settings menu?
-No — as long as you follow the scripts in `firetv-debloat`. A common mistake in DIY guides is disabling `com.amazon.device.messaging` (ADM), which causes `MainSettingsActivity` to crash. This repository explicitly keeps ADM and the stock `SettingsActivity` enabled so Fire TV Settings works normally.
+No - as long as you follow the scripts in `firetv-debloat`. A common mistake in DIY guides is disabling `com.amazon.device.messaging` (ADM), which causes `MainSettingsActivity` to crash. This repository explicitly keeps ADM and the stock `SettingsActivity` enabled so Fire TV Settings works normally.
 
 ### Does blocking OTA updates and setting a custom launcher survive a reboot?
 Yes. While GhostLock itself is a temporary root exploit that disappears on reboot, the Android `PackageManager` disable states and `/data/system/devices/keylayout/` overrides written while root **persist across reboots**.

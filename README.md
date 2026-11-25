@@ -2,9 +2,9 @@
 
 Everything needed to debloat an **Amazon Fire TV Stick 4K Max 1st Gen (`kara`, Fire OS 7.7.1.3)** without an Amazon account, replace the stock HOME with a lightweight custom **Fire TV Launcher** (`com.dkg.tvlauncher`), cut idle background RAM usage, and remap the 4 branded remote app buttons (Prime Video, Netflix, Disney+, Amazon Music) to any installed app or action.
 
-> **Act fast before the next Fire OS update patches it!** Turn your **Amazon Fire TV Stick 4K Max (1st Gen, `kara`, Fire OS 7.7.1.3)** into a fast, private, ad-free streaming box — **no Amazon account required, OTA updates permanently blocked, 83 bloat & telemetry packages disabled (~1 GB+ free RAM, 0 KB idle swap), a permanent custom Home screen with live RAM/storage stats, and all 4 branded remote buttons remapped to 8 Tap & Hold shortcuts** — 100% reversible. Because this relies on the current **GhostLock 4.14 (CVE-2026-43499)** temp-root window before Amazon silently pushes a newer firmware, lock in your setup now — **[read the full breakdown & benchmarks here](docs/why-debloat-fire-tv-now.md)**.
+> **Act fast before the next Fire OS update patches it!** Turn your **Amazon Fire TV Stick 4K Max (1st Gen, `kara`, Fire OS 7.7.1.3)** into a fast, private, ad-free streaming box - **no Amazon account required, OTA updates permanently blocked, 83 bloat & telemetry packages disabled (~1 GB+ free RAM, 0 KB idle swap), a permanent custom Home screen with live RAM/storage stats, and all 4 branded remote buttons remapped to 8 Tap & Hold shortcuts** - 100% reversible. Because this relies on the current **GhostLock 4.14 (CVE-2026-43499)** temp-root window before Amazon silently pushes a newer firmware, lock in your setup now - **[read the full breakdown & benchmarks here](docs/why-debloat-fire-tv-now.md)**.
 
-> **Disclaimer:** Tested on Fire TV Stick 4K Max 1st Gen (`AFTKA` / `kara`, Fire OS 7.7.1.3, Android 9). Package disabling uses `pm disable-user` / `pm disable` (100% reversible — no `pm uninstall`). Do not blindly run on unrelated Fire OS versions without checking package names first.
+> **Disclaimer:** Tested on Fire TV Stick 4K Max 1st Gen (`AFTKA` / `kara`, Fire OS 7.7.1.3, Android 9). Package disabling uses `pm disable-user` / `pm disable` (100% reversible - no `pm uninstall`). Do not blindly run on unrelated Fire OS versions without checking package names first.
 
 **Contents:** [Support](#support) · [What's Included](#whats-included) · [Prerequisites](#prerequisites) · [Fast Setup with an AI Agent](#fast-setup-with-an-ai-agent) · [Step-by-Step Setup](#step-by-step-setup-safe-order) · [Verification Checklist](#verification-checklist) · [Critical Lessons Learned](#critical-lessons-learned) · [Credits & License](#credits--license)
 
@@ -43,8 +43,8 @@ firetv-debloat/
 ### Fire TV Launcher (`com.dkg.tvlauncher`)
 
 Forked from [CleanYourTV 3.6](https://github.com/Gathin23/cleanyourtv) (MIT) with Fire TV–focused additions:
-- **RAM & Storage stats pill (`stats_pill`)** — compact live `RAM total / free` and `Storage total / free` bars under the top-right pills.
-- **On-TV Remote Button Remapper** (`RemoteButtonsActivity` + `InputKeyService`) — bind both **Tap** and **Hold (0.5 s)** for all 4 branded remote buttons (`F1`–`F4`) to any installed app or system action. Accessible via **Hold OK on Settings pill → Remote buttons** or **Launcher settings → Remote buttons**.
+- **RAM & Storage stats pill (`stats_pill`)** - compact live `RAM total / free` and `Storage total / free` bars under the top-right pills.
+- **On-TV Remote Button Remapper** (`RemoteButtonsActivity` + `InputKeyService`) - bind both **Tap** and **Hold (0.5 s)** for all 4 branded remote buttons (`F1`–`F4`) to any installed app or system action. Accessible via **Hold OK on Settings pill → Remote buttons** or **Launcher settings → Remote buttons**.
 - **Low-memory footprint (~49–68 MB PSS)** with `ambient_glow` and `module_cards` disabled and built-in `onTrimMemory` handling.
 
 ---
@@ -53,7 +53,7 @@ Forked from [CleanYourTV 3.6](https://github.com/Gathin23/cleanyourtv) (MIT) wit
 
 1. **ADB** (`platform-tools`) with wireless debugging enabled on the Fire TV (`Settings → My Fire TV → Developer Options → ADB Debugging`).
 2. **JDK 17** and **Android SDK Platform 34 / Build Tools 34.0.0** (to build `launcher/`).
-3. **[GhostLock 4.14](https://github.com/R0rt1z2/GhostLock)** (CVE-2026-43499 one-shot temp-root for `kara` 4.14 kernels) — only needed to modify Fire OS–protected packages (`com.amazon.tv.oobe`, `com.amazon.firehomestarter`, telemetry agents, etc.). Root does not survive reboot, but PackageManager states and `/data/system/devices/keylayout/` overrides do.
+3. **[GhostLock 4.14](https://github.com/R0rt1z2/GhostLock)** (CVE-2026-43499 one-shot temp-root for `kara` 4.14 kernels) - only needed to modify Fire OS–protected packages (`com.amazon.tv.oobe`, `com.amazon.firehomestarter`, telemetry agents, etc.). Root does not survive reboot, but PackageManager states and `/data/system/devices/keylayout/` overrides do.
 
 ---
 
@@ -138,8 +138,8 @@ Run `scripts/ghostlock/out/02-set-home.tar` via GhostLock. This disables `com.am
 ### 6. Freeze Protected Telemetry & Optimize RAM (Temp-Root, Once)
 
 Run via GhostLock:
-1. `scripts/ghostlock/out/03-freeze-telemetry.tar` — disables protected telemetry, crash/log uploaders, and account-only Amazon apps.
-2. `scripts/ghostlock/out/04-ram-optimize.tar` — disables persistent Amazon bloat (`tcomm`, `imp`, `whad`), protected cloud/cast services (`whisperlink`, `arcus.proxy`, `diode`, `sync.service`), WebView telemetry (`AWVMetricsService`), and 16 background services/receivers on `com.amazon.tv.launcher`.
+1. `scripts/ghostlock/out/03-freeze-telemetry.tar` - disables protected telemetry, crash/log uploaders, and account-only Amazon apps.
+2. `scripts/ghostlock/out/04-ram-optimize.tar` - disables persistent Amazon bloat (`tcomm`, `imp`, `whad`), protected cloud/cast services (`whisperlink`, `arcus.proxy`, `diode`, `sync.service`), WebView telemetry (`AWVMetricsService`), and 16 background services/receivers on `com.amazon.tv.launcher`.
 
 ### 7. Optional: Remap the 4 Branded Remote App Buttons (Temp-Root, Once)
 
